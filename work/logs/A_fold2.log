@@ -1,0 +1,22 @@
+[A_fold2] scheme=smallcnn split=official fold=2 img=128 epochs=25 device=cpu threads=12
+train 4147 张/2935 人 | val 1059 张 | test 618 张
+参数量: {'total': 1173730, 'trainable': 1173730}  冻结backbone=False
+  epoch  1 | loss 0.2683 | val AUC 0.9804 acc 0.9415 sen 0.9599 spe 0.8846 | 64s
+  epoch  2 | loss 0.1773 | val AUC 0.9864 acc 0.9509 sen 0.9675 spe 0.9000 | 53s
+  epoch  3 | loss 0.1571 | val AUC 0.9897 acc 0.9632 sen 0.9712 spe 0.9385 | 53s
+  epoch  4 | loss 0.1266 | val AUC 0.9909 acc 0.8517 sen 1.0000 spe 0.3962 | 47s
+  epoch  5 | loss 0.1235 | val AUC 0.9948 acc 0.9566 sen 0.9975 spe 0.8308 | 46s
+  epoch  6 | loss 0.1076 | val AUC 0.9948 acc 0.9651 sen 0.9875 spe 0.8962 | 46s
+  epoch  7 | loss 0.0982 | val AUC 0.9942 acc 0.9160 sen 0.9987 spe 0.6615 | 46s
+  epoch  8 | loss 0.0924 | val AUC 0.9959 acc 0.9547 sen 0.9987 spe 0.8192 | 46s
+  epoch  9 | loss 0.0959 | val AUC 0.9967 acc 0.9660 sen 0.9962 spe 0.8731 | 46s
+  epoch 10 | loss 0.0803 | val AUC 0.9965 acc 0.9594 sen 0.9962 spe 0.8462 | 46s
+  epoch 11 | loss 0.0795 | val AUC 0.9981 acc 0.9764 sen 0.9937 spe 0.9231 | 46s
+  epoch 12 | loss 0.0735 | val AUC 0.9977 acc 0.9490 sen 0.9975 spe 0.8000 | 46s
+  epoch 13 | loss 0.0715 | val AUC 0.9969 acc 0.9736 sen 0.9937 spe 0.9115 | 46s
+  epoch 14 | loss 0.0678 | val AUC 0.9969 acc 0.9679 sen 0.9950 spe 0.8846 | 51s
+  epoch 15 | loss 0.0637 | val AUC 0.9972 acc 0.9330 sen 0.9987 spe 0.7308 | 54s
+  epoch 16 | loss 0.0577 | val AUC 0.9977 acc 0.9537 sen 0.9412 spe 0.9923 | 51s
+  early stop @ epoch 16 (best AUC 0.9981 @ ep11)
+best val: {"n": 1059, "accuracy": 0.9763928234183191, "sensitivity": 0.9937421777221527, "specificity": 0.9230769230769231, "precision": 0.9754299754299754, "f1": 0.9845009299442034, "auc": 0.9981274670260902, "tn": 240, "fp": 20, "fn": 5, "tp": 794}
+结果已保存到 C:\Users\35736\Desktop\人工智能与概率建模\小组期末作业\work\runs\A_fold2

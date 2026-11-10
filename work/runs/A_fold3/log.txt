@@ -1,0 +1,25 @@
+[A_fold3] scheme=smallcnn split=official fold=3 img=128 epochs=25 device=cpu threads=12
+train 4212 张/2935 人 | val 994 张 | test 618 张
+参数量: {'total': 1173730, 'trainable': 1173730}  冻结backbone=False
+  epoch  1 | loss 0.2412 | val AUC 0.9838 acc 0.8883 sen 0.9944 spe 0.6095 | 72s
+  epoch  2 | loss 0.1642 | val AUC 0.9911 acc 0.9276 sen 0.9139 spe 0.9635 | 51s
+  epoch  3 | loss 0.1291 | val AUC 0.9959 acc 0.9396 sen 0.9208 spe 0.9891 | 52s
+  epoch  4 | loss 0.1317 | val AUC 0.9874 acc 0.9497 sen 0.9708 spe 0.8942 | 52s
+  epoch  5 | loss 0.1146 | val AUC 0.9965 acc 0.9577 sen 0.9944 spe 0.8613 | 52s
+  epoch  6 | loss 0.1053 | val AUC 0.9954 acc 0.9638 sen 0.9625 spe 0.9672 | 52s
+  epoch  7 | loss 0.0971 | val AUC 0.9969 acc 0.9779 sen 0.9778 spe 0.9781 | 51s
+  epoch  8 | loss 0.0919 | val AUC 0.9969 acc 0.9748 sen 0.9806 spe 0.9599 | 45s
+  epoch  9 | loss 0.0858 | val AUC 0.9965 acc 0.9668 sen 0.9569 spe 0.9927 | 43s
+  epoch 10 | loss 0.0879 | val AUC 0.9968 acc 0.9356 sen 0.9111 spe 1.0000 | 43s
+  epoch 11 | loss 0.0717 | val AUC 0.9980 acc 0.9759 sen 0.9917 spe 0.9343 | 43s
+  epoch 12 | loss 0.0753 | val AUC 0.9964 acc 0.8692 sen 0.8194 spe 1.0000 | 42s
+  epoch 13 | loss 0.0675 | val AUC 0.9975 acc 0.9376 sen 0.9139 spe 1.0000 | 43s
+  epoch 14 | loss 0.0695 | val AUC 0.9970 acc 0.9748 sen 0.9806 spe 0.9599 | 43s
+  epoch 15 | loss 0.0645 | val AUC 0.9982 acc 0.9799 sen 0.9931 spe 0.9453 | 46s
+  epoch 16 | loss 0.0580 | val AUC 0.9977 acc 0.9819 sen 0.9917 spe 0.9562 | 47s
+  epoch 17 | loss 0.0543 | val AUC 0.9981 acc 0.9789 sen 0.9931 spe 0.9416 | 67s
+  epoch 18 | loss 0.0518 | val AUC 0.9978 acc 0.9779 sen 0.9736 spe 0.9891 | 55s
+  epoch 19 | loss 0.0491 | val AUC 0.9978 acc 0.9789 sen 0.9806 spe 0.9745 | 45s
+  epoch 20 | loss 0.0479 | val AUC 0.9981 acc 0.9799 sen 0.9903 spe 0.9526 | 45s
+  early stop @ epoch 20 (best AUC 0.9982 @ ep15)
+best val: {"n": 994, "accuracy": 0.9798792756539235, "sensitivity": 0.9930555555555556, "specificity": 0.9452554744525548, "precision": 0.9794520547945206, "f1": 0.9862068965517241, "auc": 0.9981853203568531, "tn": 259, "fp": 15, "fn": 5, "tp": 715}

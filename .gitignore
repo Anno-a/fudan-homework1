@@ -1,0 +1,86 @@
+# ==============================================================
+# AIT410020 PJ2 · 任务二 —— Git 忽略规则
+#
+# 目的：仓库体积控制在 100 MB 以内，只提交「代码 + 配置 + 小体积结果」。
+# 当前目录 2.0 GB，其中约 1.99 GB 是数据和权重，全部排除在下。
+# 排除后实际会被跟踪的文件合计约 11.4 MB（figures 3.7M + docx 2.5M + splits 2.3M
+# + preds csv 1.4M + notebook 1.2M + 其余代码）。
+#
+# 别人拉下代码后需要自己准备：
+#   1) 把数据集放到 chest_xray/   （train/NORMAL、train/PNEUMONIA、test/...）
+#   2) python work/data_pipeline.py
+#   3) python work/build_cache.py
+#   4) python work/run_all.py      （可选，不跑也能用已有的 preds 重画图）
+# ==============================================================
+
+
+# ---------- 1. 原始数据：约 1.2 GB / 5856 张 JPEG ----------
+# 体积大且受数据集许可约束，绝不要提交
+chest_xray/
+# 换名字存放的话按需补充
+# data/
+# dataset/
+# *.zip
+
+
+# ---------- 2. 预处理缓存：约 367 MB ----------
+# 由 work/build_cache.py 生成，几十秒即可重建
+work/cache/
+*.npy
+*.npz
+*.pkl
+
+
+# ---------- 3. 模型权重：约 378 MB ----------
+# 16 个 run 的 .pt 占绝大部分体积，且可由 run_all.py 复现。
+# 注意：metrics.json / preds_*.csv / log.txt（合计约 2 MB）**保留**，
+#       这样不重训也能直接跑 notebook 里的评估、ROC、t-SNE、Grad-CAM。
+*.pt
+*.pth
+*.ckpt
+*.onnx
+work/runs/**/best.pt
+work/runs/**/last.pt
+
+
+# ---------- 4. Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+*.egg-info/
+.pytest_cache/
+
+
+# ---------- 5. IDE / 编辑器 ----------
+.idea/
+.vscode/
+*.iml
+*.swp
+*~
+*.sublime-workspace
+
+
+# ---------- 6. 操作系统 ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+
+# ---------- 7. 临时文件 / 导出中间物 ----------
+_preview.txt
+_refs.txt
+*_val_test.ipynb
+*_val_test_run.ipynb
+~$*.docx
+~$*.xlsx
+*.tmp
+*.bak
+
+
+# ---------- 8. 不要忽略的（显式说明，避免误伤） ----------
+# figures/          5 张 300 dpi 图，报告要用，体积 3.7 MB，保留
+# work/splits/      划分 csv，2.3 MB，保证实验可复现，保留
+# work/logs/        训练日志，64 KB，保留
+# *.ipynb           最终交付物，保留
+# *.docx            最终报告，保留

@@ -1,0 +1,20 @@
+[A_test] scheme=smallcnn split=official fold=all img=128 epochs=15 device=cpu threads=12
+train 5206 张/3669 人 | val 0 张 | test 618 张
+参数量: {'total': 1173730, 'trainable': 1173730}  冻结backbone=False
+  epoch  1 | loss 0.2476 | 57s
+  epoch  2 | loss 0.1577 | 46s
+  epoch  3 | loss 0.1264 | 45s
+  epoch  4 | loss 0.1218 | 45s
+  epoch  5 | loss 0.1066 | 45s
+  epoch  6 | loss 0.1018 | 45s
+  epoch  7 | loss 0.0870 | 45s
+  epoch  8 | loss 0.0781 | 45s
+  epoch  9 | loss 0.0784 | 45s
+  epoch 10 | loss 0.0688 | 45s
+  epoch 11 | loss 0.0638 | 45s
+  epoch 12 | loss 0.0613 | 45s
+  epoch 13 | loss 0.0561 | 45s
+  epoch 14 | loss 0.0584 | 45s
+  epoch 15 | loss 0.0518 | 46s
+test: {"n": 618, "accuracy": 0.7912621359223301, "sensitivity": 0.9922480620155039, "specificity": 0.45454545454545453, "precision": 0.7529411764705882, "f1": 0.8561872909698997, "auc": 0.9297012203988948, "tn": 105, "fp": 126, "fn": 3, "tp": 384}
+结果已保存到 C:\Users\35736\Desktop\人工智能与概率建模\小组期末作业\work\runs\A_test

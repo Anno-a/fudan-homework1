@@ -1,0 +1,109 @@
+{
+  "args": {
+    "scheme": "resnet18",
+    "split": "official",
+    "fold": "all",
+    "img": null,
+    "epochs": 12,
+    "batch": 32,
+    "lr": null,
+    "backbone_lr": 0.0001,
+    "wd": 0.0001,
+    "freeze_epochs": 3,
+    "aug": "full",
+    "prep": "crop",
+    "class_weight": "none",
+    "patience": 5,
+    "workers": 4,
+    "threads": 12,
+    "seed": 2026,
+    "tag": "B_crop_test",
+    "eval_test": true,
+    "smoke": false
+  },
+  "tag": "B_crop_test",
+  "img_size": 224,
+  "params": {
+    "total": 11177538,
+    "trainable": 11177538
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.40931372590079657,
+      "lr": 0.0009829629131445341
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.2741292895226125,
+      "lr": 0.0009330127018922195
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.23532125844984755,
+      "lr": 0.0008535533905932737
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.16767673027392904,
+      "lr": 0.00075
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.1196757580160442,
+      "lr": 0.0006294095225512604
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.09537215065032163,
+      "lr": 0.0005
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.08560876533942947,
+      "lr": 0.0003705904774487397
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.08331207901273743,
+      "lr": 0.0002500000000000001
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.08096203377060349,
+      "lr": 0.00014644660940672628
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.07338709576764543,
+      "lr": 6.698729810778065e-05
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.06783240518625361,
+      "lr": 1.70370868554659e-05
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.07362492781531751,
+      "lr": 0.0
+    }
+  ],
+  "best": {
+    "auc": -1.0,
+    "epoch": -1
+  },
+  "test_metrics": {
+    "n": 618,
+    "accuracy": 0.9077669902912622,
+    "sensitivity": 0.9509043927648578,
+    "specificity": 0.8354978354978355,
+    "precision": 0.9064039408866995,
+    "f1": 0.9281210592686002,
+    "auc": 0.9634104052708704,
+    "tn": 193,
+    "fp": 38,
+    "fn": 19,
+    "tp": 368
+  }
+}

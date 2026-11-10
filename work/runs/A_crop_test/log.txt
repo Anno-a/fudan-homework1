@@ -1,0 +1,19 @@
+[A_crop_test] scheme=smallcnn split=official fold=all img=128 epochs=15 device=cpu threads=12
+train 5206 张/3669 人 | val 0 张 | test 618 张
+参数量: {'total': 1173730, 'trainable': 1173730}  冻结backbone=False
+  epoch  1 | loss 0.2686 | 58s
+  epoch  2 | loss 0.1812 | 46s
+  epoch  3 | loss 0.1557 | 45s
+  epoch  4 | loss 0.1451 | 46s
+  epoch  5 | loss 0.1351 | 46s
+  epoch  6 | loss 0.1271 | 45s
+  epoch  7 | loss 0.1120 | 46s
+  epoch  8 | loss 0.1047 | 45s
+  epoch  9 | loss 0.1047 | 45s
+  epoch 10 | loss 0.0892 | 45s
+  epoch 11 | loss 0.0892 | 45s
+  epoch 12 | loss 0.0865 | 45s
+  epoch 13 | loss 0.0810 | 45s
+  epoch 14 | loss 0.0775 | 45s
+  epoch 15 | loss 0.0755 | 46s
+test: {"n": 618, "accuracy": 0.9029126213592233, "sensitivity": 0.9638242894056848, "specificity": 0.8008658008658008, "precision": 0.8902147971360382, "f1": 0.9255583126550868, "auc": 0.9481470295423784, "tn": 185, "fp": 46, "fn": 14, "tp": 373}

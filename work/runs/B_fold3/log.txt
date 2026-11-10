@@ -1,0 +1,20 @@
+[B_fold3] scheme=resnet18 split=official fold=3 img=224 epochs=15 device=cpu threads=12
+train 4212 张/2935 人 | val 994 张 | test 618 张
+参数量: {'total': 11177538, 'trainable': 1026}  冻结backbone=True
+  epoch  1 | loss 0.4358 | val AUC 0.9486 acc 0.8803 sen 0.9722 spe 0.6387 | 57s
+  epoch  2 | loss 0.2997 | val AUC 0.9573 acc 0.8994 sen 0.9347 spe 0.8066 | 45s
+  epoch  3 | loss 0.2574 | val AUC 0.9621 acc 0.9085 sen 0.9417 spe 0.8212 | 45s
+  epoch 4: 解冻 backbone，参数量 {'total': 11177538, 'trainable': 11177538}
+  epoch  4 | loss 0.1660 | val AUC 0.9877 acc 0.9487 sen 0.9708 spe 0.8905 | 92s
+  epoch  5 | loss 0.1137 | val AUC 0.9923 acc 0.9638 sen 0.9639 spe 0.9635 | 92s
+  epoch  6 | loss 0.0899 | val AUC 0.9966 acc 0.9769 sen 0.9792 spe 0.9708 | 93s
+  epoch  7 | loss 0.0698 | val AUC 0.9963 acc 0.9789 sen 0.9861 spe 0.9599 | 93s
+  epoch  8 | loss 0.0610 | val AUC 0.9972 acc 0.9759 sen 0.9764 spe 0.9745 | 93s
+  epoch  9 | loss 0.0591 | val AUC 0.9969 acc 0.9738 sen 0.9708 spe 0.9818 | 93s
+  epoch 10 | loss 0.0626 | val AUC 0.9975 acc 0.9789 sen 0.9792 spe 0.9781 | 93s
+  epoch 11 | loss 0.0497 | val AUC 0.9978 acc 0.9839 sen 0.9889 spe 0.9708 | 93s
+  epoch 12 | loss 0.0556 | val AUC 0.9983 acc 0.9849 sen 0.9903 spe 0.9708 | 93s
+  epoch 13 | loss 0.0513 | val AUC 0.9980 acc 0.9829 sen 0.9847 spe 0.9781 | 86s
+  epoch 14 | loss 0.0481 | val AUC 0.9980 acc 0.9849 sen 0.9917 spe 0.9672 | 82s
+  epoch 15 | loss 0.0541 | val AUC 0.9981 acc 0.9839 sen 0.9861 spe 0.9781 | 82s
+best val: {"n": 994, "accuracy": 0.9849094567404426, "sensitivity": 0.9902777777777778, "specificity": 0.9708029197080292, "precision": 0.9889042995839112, "f1": 0.9895905621096461, "auc": 0.9983171127331711, "tn": 266, "fp": 8, "fn": 7, "tp": 713}

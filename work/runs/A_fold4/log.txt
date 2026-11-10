@@ -1,0 +1,29 @@
+[A_fold4] scheme=smallcnn split=official fold=4 img=128 epochs=25 device=cpu threads=12
+train 4183 张/2936 人 | val 1023 张 | test 618 张
+参数量: {'total': 1173730, 'trainable': 1173730}  冻结backbone=False
+  epoch  1 | loss 0.2560 | val AUC 0.9600 acc 0.8935 sen 0.8953 spe 0.8885 | 58s
+  epoch  2 | loss 0.1750 | val AUC 0.9821 acc 0.8837 sen 0.9973 spe 0.5791 | 43s
+  epoch  3 | loss 0.1437 | val AUC 0.9880 acc 0.9629 sen 0.9812 spe 0.9137 | 45s
+  epoch  4 | loss 0.1209 | val AUC 0.9914 acc 0.8964 sen 0.8631 spe 0.9856 | 55s
+  epoch  5 | loss 0.1036 | val AUC 0.9946 acc 0.9638 sen 0.9772 spe 0.9281 | 54s
+  epoch  6 | loss 0.0968 | val AUC 0.9884 acc 0.7820 sen 1.0000 spe 0.1978 | 55s
+  epoch  7 | loss 0.1003 | val AUC 0.9964 acc 0.9580 sen 0.9490 spe 0.9820 | 55s
+  epoch  8 | loss 0.0952 | val AUC 0.9972 acc 0.8534 sen 0.7987 spe 1.0000 | 55s
+  epoch  9 | loss 0.0802 | val AUC 0.9930 acc 0.9492 sen 0.9933 spe 0.8309 | 56s
+  epoch 10 | loss 0.0771 | val AUC 0.9960 acc 0.8827 sen 0.8403 spe 0.9964 | 55s
+  epoch 11 | loss 0.0771 | val AUC 0.9966 acc 0.9521 sen 0.9973 spe 0.8309 | 55s
+  epoch 12 | loss 0.0732 | val AUC 0.9980 acc 0.9697 sen 0.9638 spe 0.9856 | 55s
+  epoch 13 | loss 0.0674 | val AUC 0.9981 acc 0.9629 sen 0.9544 spe 0.9856 | 55s
+  epoch 14 | loss 0.0588 | val AUC 0.9983 acc 0.9756 sen 0.9745 spe 0.9784 | 55s
+  epoch 15 | loss 0.0641 | val AUC 0.9981 acc 0.9804 sen 0.9906 spe 0.9532 | 55s
+  epoch 16 | loss 0.0607 | val AUC 0.9980 acc 0.9570 sen 0.9987 spe 0.8453 | 55s
+  epoch 17 | loss 0.0573 | val AUC 0.9982 acc 0.9844 sen 0.9919 spe 0.9640 | 56s
+  epoch 18 | loss 0.0464 | val AUC 0.9984 acc 0.9795 sen 0.9906 spe 0.9496 | 56s
+  epoch 19 | loss 0.0548 | val AUC 0.9986 acc 0.9658 sen 0.9544 spe 0.9964 | 57s
+  epoch 20 | loss 0.0409 | val AUC 0.9985 acc 0.9775 sen 0.9812 spe 0.9676 | 56s
+  epoch 21 | loss 0.0468 | val AUC 0.9982 acc 0.9814 sen 0.9960 spe 0.9424 | 57s
+  epoch 22 | loss 0.0449 | val AUC 0.9986 acc 0.9824 sen 0.9852 spe 0.9748 | 57s
+  epoch 23 | loss 0.0419 | val AUC 0.9986 acc 0.9863 sen 0.9919 spe 0.9712 | 56s
+  epoch 24 | loss 0.0428 | val AUC 0.9986 acc 0.9804 sen 0.9839 spe 0.9712 | 57s
+  epoch 25 | loss 0.0402 | val AUC 0.9986 acc 0.9863 sen 0.9919 spe 0.9712 | 57s
+best val: {"n": 1023, "accuracy": 0.9824046920821115, "sensitivity": 0.9852348993288591, "specificity": 0.9748201438848921, "precision": 0.99055330634278, "f1": 0.9878869448183042, "auc": 0.9986335763603882, "tn": 271, "fp": 7, "fn": 11, "tp": 734}

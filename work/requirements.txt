@@ -1,0 +1,27 @@
+# AIT410020 PJ2 任务二 —— 环境依赖（已在本机验证的版本）
+# Python：3.10 – 3.12（本机为 3.12.7，Anaconda 环境 D:\Anaconda\python.exe）
+#   下界 3.10：torch / torchvision / timm / huggingface_hub / safetensors 都要求 >=3.10
+#   上界 3.12：numpy 1.26.4 与 matplotlib 3.9.2 没有 cp313 的 wheel，3.13 装不上
+# 安装：
+#   pip install -r work/requirements.txt
+# 注意：本机是 CPU-only 的 torch，若重装请用 https://download.pytorch.org/whl/cpu 源。
+#       torchvision 必须与 torch 配对，单独 pip install torchvision 会把 torch 升级/降级。
+
+torch==2.12.0
+torchvision==0.27.0
+
+# 预训练权重（方案 B）需要，走 HuggingFace Hub
+timm==1.0.31
+huggingface_hub==2.4.0
+safetensors==0.8.0
+
+# 数据处理与评估
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.5.1
+Pillow==10.4.0
+
+# 可视化（ROC/混淆矩阵/t-SNE/Grad-CAM）与 notebook
+matplotlib==3.9.2
+seaborn==0.13.2
+tqdm==4.66.5

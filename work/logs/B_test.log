@@ -1,0 +1,18 @@
+[B_test] scheme=resnet18 split=official fold=all img=224 epochs=12 device=cpu threads=12
+train 5206 张/3669 人 | val 0 张 | test 618 张
+参数量: {'total': 11177538, 'trainable': 1026}  冻结backbone=True
+  epoch  1 | loss 0.4300 | 40s
+  epoch  2 | loss 0.2871 | 28s
+  epoch  3 | loss 0.2429 | 28s
+  epoch 4: 解冻 backbone，参数量 {'total': 11177538, 'trainable': 11177538}
+  epoch  4 | loss 0.1605 | 78s
+  epoch  5 | loss 0.1118 | 78s
+  epoch  6 | loss 0.0857 | 78s
+  epoch  7 | loss 0.0753 | 78s
+  epoch  8 | loss 0.0666 | 78s
+  epoch  9 | loss 0.0606 | 78s
+  epoch 10 | loss 0.0618 | 78s
+  epoch 11 | loss 0.0589 | 78s
+  epoch 12 | loss 0.0528 | 78s
+test: {"n": 618, "accuracy": 0.8689320388349514, "sensitivity": 0.9922480620155039, "specificity": 0.6623376623376623, "precision": 0.8311688311688312, "f1": 0.9045936395759717, "auc": 0.9654686398872445, "tn": 153, "fp": 78, "fn": 3, "tp": 384}
+结果已保存到 C:\Users\35736\Desktop\人工智能与概率建模\小组期末作业\work\runs\B_test

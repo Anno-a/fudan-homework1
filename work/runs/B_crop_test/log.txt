@@ -1,0 +1,17 @@
+[B_crop_test] scheme=resnet18 split=official fold=all img=224 epochs=12 device=cpu threads=12
+train 5206 张/3669 人 | val 0 张 | test 618 张
+参数量: {'total': 11177538, 'trainable': 1026}  冻结backbone=True
+  epoch  1 | loss 0.4093 | 40s
+  epoch  2 | loss 0.2741 | 28s
+  epoch  3 | loss 0.2353 | 28s
+  epoch 4: 解冻 backbone，参数量 {'total': 11177538, 'trainable': 11177538}
+  epoch  4 | loss 0.1677 | 79s
+  epoch  5 | loss 0.1197 | 79s
+  epoch  6 | loss 0.0954 | 79s
+  epoch  7 | loss 0.0856 | 79s
+  epoch  8 | loss 0.0833 | 78s
+  epoch  9 | loss 0.0810 | 79s
+  epoch 10 | loss 0.0734 | 79s
+  epoch 11 | loss 0.0678 | 79s
+  epoch 12 | loss 0.0736 | 79s
+test: {"n": 618, "accuracy": 0.9077669902912622, "sensitivity": 0.9509043927648578, "specificity": 0.8354978354978355, "precision": 0.9064039408866995, "f1": 0.9281210592686002, "auc": 0.9634104052708704, "tn": 193, "fp": 38, "fn": 19, "tp": 368}
