@@ -72,8 +72,10 @@ _preview.txt
 _refs.txt
 *_val_test.ipynb
 *_val_test_run.ipynb
+*_tmp_jupytext_*.ipynb
 ~$*.docx
 ~$*.xlsx
+~$*.pptx
 *.tmp
 *.bak
 

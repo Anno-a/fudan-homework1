@@ -14,8 +14,10 @@
 # %%
 import os
 import re
+import io
 import json
 import time
+import contextlib
 import hashlib
 import warnings
 from pathlib import Path
@@ -39,10 +41,25 @@ from sklearn.model_selection import StratifiedKFold, train_test_split
 
 warnings.filterwarnings("ignore")
 
+# joblib 在 Windows 上会调 wmic 探测物理核心数，失败时往 stderr 打一段 traceback，
+# 让 t-SNE 那一格看起来像报错。注意：只有该值**严格小于**逻辑核数时才会跳过探测，
+# 设成 os.cpu_count() 是无效的。
+os.environ.setdefault("LOKY_MAX_CPU_COUNT",
+                      str(min(12, max(1, (os.cpu_count() or 8) - 1))))
+
 # --- 路径：从当前目录向上找 chest_xray/，所以从哪个目录启动 Jupyter 都能跑 ---
 ROOT = Path.cwd()
 while not (ROOT / "chest_xray").exists() and ROOT.parent != ROOT:
     ROOT = ROOT.parent
+if not (ROOT / "chest_xray").exists():
+    raise FileNotFoundError(
+        "找不到 chest_xray/ 数据集目录。\n"
+        "数据集没有随仓库提交，需要自行准备，目录结构为：\n"
+        "    chest_xray/train/NORMAL/*.jpeg\n"
+        "    chest_xray/train/PNEUMONIA/*.jpeg\n"
+        "    chest_xray/test/NORMAL/*.jpeg\n"
+        "    chest_xray/test/PNEUMONIA/*.jpeg\n"
+        "放好后重新运行本单元。详见 README.md。")
 DATA = ROOT / "chest_xray"
 SPLITS = ROOT / "work" / "splits"
 RUNS = ROOT / "work" / "runs"
@@ -357,12 +374,15 @@ class SmallCNN(nn.Module):
         return self.head(self.features(x))
 
 
-def build_model(scheme: str) -> nn.Module:
+def build_model(scheme: str, pretrained: bool = True) -> nn.Module:
     if scheme == "smallcnn":
         return SmallCNN()
     import timm
     os.environ.setdefault("HF_ENDPOINT", "https://hf-mirror.com")
-    return timm.create_model("resnet18", pretrained=True, num_classes=2)
+    # 首次加载预训练权重时 huggingface_hub 会往 stderr 打一句"未认证请求"的提示，
+    # 不影响运行但会让 notebook 看起来有告警，这里只在建模期间把它吞掉。
+    with contextlib.redirect_stderr(io.StringIO()):
+        return timm.create_model("resnet18", pretrained=pretrained, num_classes=2)
 
 
 def set_frozen(model, scheme, frozen):
@@ -381,7 +401,8 @@ def count_params(m):
 # %%
 cfg_tbl = []
 for s, img in [("smallcnn", IMG_A), ("resnet18", IMG_B)]:
-    m = build_model(s)
+    # 只数参数，不需要下载预训练权重（也避免第一格就联网）
+    m = build_model(s, pretrained=False)
     c = count_params(m)
     cfg_tbl.append({"方案": "A 自建 SmallCNN" if s == "smallcnn" else "B ResNet18 迁移",
                     "输入": f"{img}×{img}", "参数总量": f"{c['总参数'] / 1e6:.2f}M",
@@ -711,7 +732,9 @@ else:
 def load_trained(key):
     scheme = "smallcnn" if key == "A" else "resnet18"
     img_size = IMG_A if key == "A" else IMG_B
-    model = build_model(scheme).to(DEVICE)
+    # 这里建完马上就会 load_state_dict 覆盖全部权重，预训练值用不上，
+    # 用 pretrained=False 既不联网也不会触发下载提示。
+    model = build_model(scheme, pretrained=False).to(DEVICE)
     model.load_state_dict(torch.load(RUNS / f"{key}_fold0" / "best.pt",
                                      map_location=DEVICE, weights_only=True))
     model.eval()
